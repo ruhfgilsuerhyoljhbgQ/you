@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>0초마다 무한 리다이렉트</title>
+    <script type="text/javascript">
+        // 리다이렉트할 사이트 URL 목록
+        const sites = ["https://www.opera.com/ko/computer/thanks?ni=stable&os=windows", "https://www.opera.com/ko/computer/thanks?ni=eapgx&os=windows&edition=GX-CN"];
+        let currentIndex = 0; // 현재 사이트 인덱스 설정
+
+        // 매우 빠른 무한 리다이렉트 함수
+        function redirect() {
+            // 현재 인덱스의 사이트로 이동
+            window.location.href = sites[currentIndex];
+            // 인덱스를 다음 사이트로 업데이트
+            currentIndex = (currentIndex + 1) % sites.length;
+        }
+
+        // 페이지가 로드되면 즉시 리다이렉트 시작
+        window.onload = function() {
+            while (true) {
+                redirect();
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>즉시 무한 리다이렉트 테스트입니다. 테스트 환경에서만 실행하세요.</p>
+</body>
+</html>
